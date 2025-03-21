@@ -1,2 +1,7 @@
-# Projeto-Inicial-UC11
-Projeto para realizar as atividades da 11º unidade curricular do curso técnico de analise e desenvolvimento de sistemas. 
+# Sistema de Leilão
+## Descrição
+Este projeto é um sistema para gerenciar leilões online, permitindo cadastro de itens, lances e usuários.  
+## Tecnologias Utilizadas
+- Java
+- MySQL
+- Git/GitHub
