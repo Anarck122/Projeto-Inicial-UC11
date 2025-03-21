@@ -15,19 +15,29 @@ import javax.swing.JOptionPane;
  *
  * @author Adm
  */
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+import javax.swing.JOptionPane;
+
 public class conectaDAO {
     
-    public Connection connectDB(){
+    public Connection connectDB() {
         Connection conn = null;
         
         try {
-        
-            conn = DriverManager.getConnection("jdbc:mysql://localhost/uc11?user=root&password=");
+            System.out.println("Tentando conectar ao banco de dados..."); // Debug
+            conn = DriverManager.getConnection("jdbc:mysql://localhost/uc11", "root", "petrick2015"); 
             
-        } catch (SQLException erro){
-            JOptionPane.showMessageDialog(null, "Erro ConectaDAO" + erro.getMessage());
+            if (conn != null) {
+                System.out.println("Conexão bem-sucedida!"); // Debug
+            }
+
+        } catch (SQLException erro) {
+            JOptionPane.showMessageDialog(null, "Erro ConectaDAO: " + erro.getMessage());
+            System.out.println("Erro ao conectar ao banco: " + erro.getMessage()); // Debug
         }
         return conn;
     }
-    
 }
+
