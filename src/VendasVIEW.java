@@ -30,6 +30,14 @@ public class VendasVIEW extends javax.swing.JFrame {
         }
     }
 
+    @Override
+    public void setVisible(boolean visible) {
+    if (visible) {
+        listarProdutosVendidos(); // Atualiza a tabela antes de exibir a janela
+    }
+    super.setVisible(visible);
+}
+
     @SuppressWarnings("unchecked")
     private void initComponents() {
         jScrollPane1 = new javax.swing.JScrollPane();

@@ -220,7 +220,8 @@ public class listagemVIEW extends javax.swing.JFrame {
     }//GEN-LAST:event_btnVoltarActionPerformed
 
     private void btnConsultarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConsultarActionPerformed
-        // TODO add your handling code here:
+     VendasVIEW vendasTela = new VendasVIEW();
+        vendasTela.setVisible(true);
     }//GEN-LAST:event_btnConsultarActionPerformed
 
     /**
