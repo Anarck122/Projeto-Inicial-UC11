@@ -68,5 +68,32 @@ public class ProdutosDAO {
         }
         return lista;
     }
-}
 
+  public void venderProduto(int id) {
+    String sql = "UPDATE produtos SET status = 'Vendido' WHERE id = ?"; 
+    
+    try (Connection conn = new conectaDAO().connectDB();
+         PreparedStatement stmt = conn.prepareStatement(sql)) {
+        
+        System.out.println("Conexão estabelecida com sucesso.");
+        System.out.println("Query a ser executada: " + sql);
+        System.out.println("ID recebido para venda: " + id);
+        
+        stmt.setInt(1, id);
+        int resultado = stmt.executeUpdate();
+        
+        if (resultado > 0) {
+            JOptionPane.showMessageDialog(null, "Produto vendido com sucesso!");
+            System.out.println("Produto com ID " + id + " vendido com sucesso.");
+        } else {
+            JOptionPane.showMessageDialog(null, "Erro ao vender produto. Produto não encontrado.", "Erro", JOptionPane.ERROR_MESSAGE);
+            System.out.println("Produto com ID " + id + " não foi encontrado no banco.");
+        }
+        
+    } catch (SQLException erro) {
+        System.out.println("Erro SQL: " + erro.getMessage());
+        erro.printStackTrace();
+        JOptionPane.showMessageDialog(null, "Erro ao vender produto: " + erro.getMessage(), "Erro", JOptionPane.ERROR_MESSAGE);
+    }
+}
+}
